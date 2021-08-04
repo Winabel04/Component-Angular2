@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,  EventEmitter } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-first',
@@ -8,15 +8,12 @@ import { Component, OnInit, Output,  EventEmitter } from '@angular/core';
 export class FirstComponent implements OnInit {
 
    
-    @Output() firstEvent = new EventEmitter();
+    @Input() countDisplay = 0;
     
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick(){
-    // alert('test');
-    this.firstEvent.emit('New Message');
-}
+  
 }

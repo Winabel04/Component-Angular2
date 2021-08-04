@@ -1,0 +1,49 @@
+<!-- <p>http works!</p> -->
+<!-- 
+<h1>List of Posts</h1>
+
+<div *ngFor="let user of users">
+    <h2>Title: {{user.title}}</h2>
+    <p>{{user.body}}</p>
+    <ul>id: {{user.id}}</ul>
+    <ul>userId: {{user.userId}}</ul>
+</div> -->
+
+<div *ngIf = "!showDetails">
+    <h1>List of Users</h1>
+    <div *ngFor="let user of users">
+        <h3>{{user.name}} &nbsp; &nbsp;<button (click)="detailsViewed(user.id)">ViewDetails</button></h3>
+    </div> 
+
+</div>
+
+
+<div *ngIf = "showDetails">
+    <h1>User Details</h1>
+    <div >
+        <h3>{{selectedUser?.name}}</h3>
+        <p>Username: {{selectedUser?.username}}</p>
+        <p>Email: {{selectedUser?.email}}</p>
+        <p>Address: {{selectedUser?.address?.street + ", " + selectedUser?.address?.suite + ", " + selectedUser?.address?.city + ", " + selectedUser?.address?.zipcode }}</p>
+        <p>Phone: {{selectedUser?.phone}}</p>
+        <p>Website: {{selectedUser?.website}}</p>
+        <p>Company: {{selectedUser?.company?.name}}</p>
+        <button (click) = "backToUserList()"> Back to Users</button>
+    </div>
+</div>
+
+
+<!-- 
+<div *ngIf = "showDetails">
+    <h1>User Details</h1>
+    <div *ngFor = "let user of users">
+        <h3>{{user.name}}</h3>
+        <p>Username: {{user.username}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Address: {{user.address.street + ", " + user.address.suite + ", " + user.address.city + ", " + user.address.zipcode }}</p>
+        <p>Phone: {{user.phone}}</p>
+        <p>Website: {{user.website}}</p>
+        <p>Company: {{user.company.name}}</p>
+        <button (click) = "backToUserList()"> Back to Users</button>
+    </div>
+</div> -->

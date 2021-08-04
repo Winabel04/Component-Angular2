@@ -1,0 +1,12 @@
+
+<div>
+    <h2>{{deviceDetail.name}}</h2>
+    <p>Brand: {{deviceDetail.brand}}</p>
+    <p>Model: {{deviceDetail.model}}</p>
+    <p>Year: {{deviceDetail.year}}</p>
+    <p>Serial: {{deviceDetail.serial}}</p>
+    <br>
+    <!-- <button type="submit">Update</button> -->
+    <!-- <button (click) = "updated(deviceDetail.id)">Update</button> -->
+    <button (click) = "updateList(deviceDetail.id || 0)">Update</button>
+</div>

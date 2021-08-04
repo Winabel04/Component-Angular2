@@ -1,0 +1,36 @@
+button {
+    color:black;
+    background-color: skyblue ;
+    padding:7px;
+    border-radius:5px;
+    font-size:17px;
+    float: right;
+}
+
+
+input{
+    border-radius: 8px;
+    padding: 8px;
+    color: blue;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+label{
+    font-size: 20px;
+}
+
+form{
+    background-color: rgb(112, 202, 172);
+    width: 500px;
+    padding: 50px;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px 6px rgb(37, 36, 36);  
+    margin-left: 320px;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+
