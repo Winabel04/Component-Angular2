@@ -1,0 +1,10 @@
+GET http://127.0.0.1:8000/api/armsystemUser/handymans/pendings
+Accept: application/json
+Content-Type: application/json
+
+
+# {
+# "old_pass": "senilla",
+# "new_pass": "jaynard",
+# "phone": "09653892023"
+# }
