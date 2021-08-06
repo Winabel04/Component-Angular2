@@ -47,6 +47,7 @@ class ArmsystemUserController extends Controller
      */
 
 
+    //register
     public function userRegister(Request $request)
     {
 
@@ -61,7 +62,7 @@ class ArmsystemUserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()]);
+            return response()->json(['error' => $validator->errors()],400);
         }
         $postArray = $request->all();
 
@@ -77,6 +78,8 @@ class ArmsystemUserController extends Controller
         ]);
     }
 
+
+    //for login
     public function userLogin(Request $request)
     {
 
@@ -100,29 +103,38 @@ class ArmsystemUserController extends Controller
         return response($response, 200);
     }
 
-    public function logout(Request $request)
-    {
-        $response = [];
 
-        try {
-            $request->user()->currentAccessToken()->delete();
+    // for logout
+    // public function logout(Request $request)
+    // {
+    //     $response = [];
 
-            $response['message'] = 'Logout successfully!';
-            $response['code'] = 200;
-        } catch (\Exception $e) {
-            $response['message'] = 'Logout failed!';
-            $response['code'] = 400;
-        }
+    //     try {
+    //         $request->user()->currentAccessToken()->delete();
 
-        return response($response, $response['code']);
-    }
+    //         $response['message'] = 'Logout successfully!';
+    //         $response['code'] = 200;
+    //     } catch (\Exception $e) {
+    //         $response['message'] = 'Logout failed!';
+    //         $response['code'] = 400;
+    //     }
+
+    //     return response($response, $response['code']);
+    // }
 
 
+    //to get all the user Type "handyman"
     public function getHandyMan()
     {
         $data = armsystemUser::where('userType', 'handyman')->get();
         return $data;
     }
+
+    // public function getComplaintWithAssignee($id)
+    // {
+    //     $user = armsystemUser::where('id',$id)->with('complaint')->get();
+    //     return $user;
+    // }
 
     /**
      * Display the specified resource.
@@ -153,6 +165,9 @@ class ArmsystemUserController extends Controller
      * @param  \App\Models\armsystemUser  $armsystemUser
      * @return \Illuminate\Http\Response
      */
+
+
+    // update the password and phone number of the users
     public function updatePassword(Request $request, armsystemUser $armsystemUser)
     {
     

@@ -24,6 +24,8 @@ class ComplaintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function create(Request $request)
     {
 
@@ -49,6 +51,8 @@ class ComplaintController extends Controller
         // return $user;
     }
 
+
+    //to get the complaints by its user id
     public function getComplaintsByUser($id)
     {
         try {
@@ -59,21 +63,58 @@ class ComplaintController extends Controller
         }
     }
 
+
+    // to get the pending status 
     public function getAssignees()
     {
        return Complaint::where('status', 'Pending')->get();
     }
 
+
+     //to generate the pending work status to approved 
+    public function updateStatus(Request $request)
+    {
+        $data = Complaint::wherein('id', $request)->update(array('status' => 'Approved'));
+        return $data;
+        
+    }
+
+    public function updateStatusComplete(Request $request)
+    {
+        $data = Complaint::wherein('id', $request)->update(array('status' => 'Complete'));
+        return $data;
+        
+    }
+
+    //to get the approved status that the admin generated
+    public function getApproved()
+    {
+       $data = Complaint::where('status', 'Approved')->get();
+       return $data;
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+
+    //to get all the complaints from the tenants
+    public function allComplaints()
     {
-        //
+        $data = Complaint::all();
+        return $data;
     }
+
+
+
+    // to get the tenants complaints to the handyman
+    public function getComplaintsByHandyman($handyman)
+    {
+       return Complaint::where('handyman', $handyman)->with('user')->get();
+    }
+
 
     /**
      * Display the specified resource.

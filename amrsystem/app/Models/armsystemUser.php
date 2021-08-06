@@ -21,7 +21,7 @@ class armsystemUser extends Model
 
 
     public function complaint(){
-        return $this->hasMany(User::class , 'user_id', 'id');
+        return $this->hasMany(Complaint::class , 'user_id', 'id');
 
     }
 }

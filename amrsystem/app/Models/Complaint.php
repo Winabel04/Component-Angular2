@@ -20,7 +20,7 @@ class Complaint extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class , 'user_id', 'id');
+        return $this->belongsTo(armsystemUser::class , 'user_id', 'id');
     }
   
 }
